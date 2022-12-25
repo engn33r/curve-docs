@@ -181,8 +181,7 @@ Note that if you wish to add or remove liqudity using the underlying assets with
 
     Calculate the amount received when withdrawing and unwrapping in a single coin. Useful for setting ``_max_burn_amount`` when calling :func:`remove_liquidity_one_coin<StableSwap.remove_liquidity_one_coin>`.
 
-    * ``_pool``: Address of the pool to deposit into.
-    * ``_token_amount``: Amount of LP tokens to burn in the withdrawal.
+    * ``_burn_amount``: Amount of LP tokens to burn in the withdrawal.
     * ``i``: Index value of the underlying coin to withdraw. Can be found using the :func:`coins<StableSwap.coins>` getter method.
 
     Returns the expected amount of coin received.
