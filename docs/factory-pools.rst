@@ -164,7 +164,7 @@ Making Exchanges
 Adding and Removing Liquidity
 =============================
 
-Note that if you wish to add or remove liqudity using the underlying assets within the base pool, you must use a :ref:`depositor contract <factory-deposits>`.
+Note that if you wish to add or remove liquidity using the underlying assets within the base pool, you must use a :ref:`depositor contract <factory-deposits>`.
 
 .. py:function:: StableSwap.calc_token_amount(_amounts: uint256[2], _is_deposit: bool) -> uint256: view
 
@@ -220,7 +220,7 @@ Note that if you wish to add or remove liqudity using the underlying assets with
         .. code-block:: python
 
             >>> amount = pool.balanceOf(alice)
-            >>> pool.remove_liquidity(pool, amount, 0, {'from': alice})
+            >>> pool.remove_liquidity(amount, 0, {'from': alice})
 
 .. py:function:: StableSwap.remove_liquidity_imbalance(_amounts: uint256[2], _max_burn_amount: uint256, _receiver: address = msg.sender) -> uint256: nonpayable
 
@@ -236,7 +236,7 @@ Note that if you wish to add or remove liqudity using the underlying assets with
 
             >>> amounts = [1e18, 1e18]
             >>> expected = pool.calc_token_amount(amounts, False) * 1.01
-            >>> pool.remove_liquidity_imbalance(pool, amounts, expected, {'from': alice})
+            >>> pool.remove_liquidity_imbalance(amounts, expected, {'from': alice})
 
 .. py:function:: StableSwap.remove_liquidity_one_coin(_burn_amount: uint256, i: int128, _min_received: uint256, _receiver: address = msg.sender) -> uint256: nonpayable
 
@@ -252,7 +252,7 @@ Note that if you wish to add or remove liqudity using the underlying assets with
         .. code-block:: python
 
             >>> amount = pool.balanceOf(alice)
-            >>> expected = pool.calc_withdraw_one_coin(pool, amount, 0) * 1.01
+            >>> expected = pool.calc_withdraw_one_coin(amount, 0) * 1.01
             >>> pool.remove_liquidity_one_coin(amount, expected, 0, {'from': alice})
 
 
